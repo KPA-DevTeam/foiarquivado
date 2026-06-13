@@ -50,8 +50,36 @@
 </head>
 <body>
     <div class="card">
-      <h1>THIS CHANNEL IS ARCHIVED.</h1>
-      <p>THIS CHANNEL IS ARCHIVED. YOU NO LONGER HAVE THE ABILITY TO CHAT IN THIS ARCHIVED CHANNEL ANYMORE.</p>
+      <h1 id="title">THIS CHANNEL IS ARCHIVED.</h1>
+      <p id="text">THIS CHANNEL IS ARCHIVED. YOU NO LONGER HAVE THE ABILITY TO CHAT IN THIS ARCHIVED CHANNEL ANYMORE.</p>
     </div>
+
+    <script>
+    const translations = {
+        'en-US': {
+        title: 'THIS CHANNEL IS ARCHIVED.',
+        text: 'THIS CHANNEL IS ARCHIVED. YOU NO LONGER HAVE THE ABILITY TO CHAT IN THIS ARCHIVED CHANNEL ANYMORE.'
+        },
+        'hwc-US-HI': {
+        title: 'DIS CHANNEL IS ARCHIVED.',
+        text: " 'DIS CHANNEL IS ARCHIVED. YOU NO MO' DA ABILITY FO' CHAT INSIDE DIS ARCHIVED CHANNEL ANYMO'. DASS IT!"
+        },
+        'pt-BR': {
+        title: 'ESTE CANAL FOI ARQUIVADO.',
+        text: 'ESTE CANAL FOI ARQUIVADO. VOCÊ NÃO TEM MAIS A HABILIDADE DE CHATEAR NESTE CANAL ARQUIVADO.'
+        }
+    };
+
+    // Get locale from URL (e.g., /fil-PH/...)
+    const pathParts = window.location.pathname.split('/');
+    const locale = pathParts[1] || 'en-US'; // Default to en-US if empty
+
+    // Apply translations if the locale exists
+    if (translations[locale]) {
+        document.getElementById('title').innerText = translations[locale].title;
+        document.getElementById('welcome-text').innerText = translations[locale].text;
+    }
+    </script>
+
 </body>
 </html>

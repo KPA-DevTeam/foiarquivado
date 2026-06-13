@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/:lang(en-US|hwc-US-HI|pt-BR)/:path*",
+      "destination": "/index.html"
+    }
+  ]
+}
